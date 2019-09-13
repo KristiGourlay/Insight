@@ -28,12 +28,13 @@ Some of these files do not have this information, so a second source may be need
 # Modeling
 
 The project will attempt to use many different NLP models, including:
-CountVectorizer
-TF-IDF
-LDA
-Clustering
-Word2Vec
-BERT
-Neural Network
-SVM
+
+                    CountVectorizer
+                    TF-IDF
+                    LDA
+                    Clustering
+                    Word2Vec
+                    BERT
+                    Neural Network
+                    SVM
 
