@@ -6,6 +6,7 @@ analyze documents from similar time periods for similarities in both vocabulary 
 <img src='static/images/books.jpeg' alt='beerphoto'>
 
 
+
 # Motivation
 
 The usefulness of this model will be its ability to aid in the dating of historical documents. Archives and manuscript collections
