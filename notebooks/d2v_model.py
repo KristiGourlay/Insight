@@ -135,7 +135,7 @@ dmm_model.delete_temporary_training_data(keep_doctags_vectors=True, keep_inferen
 
 
 
-# Concatendated Model (Doc2Vec)
+# Concatenated Model (Doc2Vec)
 
 
 new_model = ConcatenatedDoc2Vec([wdv_model, dmm_model])
