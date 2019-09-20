@@ -4,7 +4,7 @@ My project will take excerpts from books from various time periods and predict w
 analyze documents from similar time periods for similarities in both vocabulary and style. The flask app will accept an excerpt from a piece of work
 and predict what time period the writing came from.
 
-<img src='projectname/static/images/books.jpeg' alt='beerphoto'>
+<img src='projectname/static/images/books.png' alt='beerphoto'>
 
 
 # Motivation
