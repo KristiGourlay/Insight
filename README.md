@@ -4,7 +4,7 @@ My project will take excerpts from books from various time periods and predict w
 analyze documents from similar time periods for similarities in both vocabulary and style. The flask app will accept an excerpt from a piece of work
 and predict what time period the writing came from.
 
-<img src='static/images/books.jpeg' alt='beerphoto'>
+<img src='projectname/static/images/books.jpeg' alt='beerphoto'>
 
 
 # Motivation
@@ -14,13 +14,13 @@ The usefulness of this model will be its ability to aid in the dating of histori
 
 # Data
 
-I currently have over 30,000 text documents scraped from Project Gutenberg. Due to the sheer size of the, I decided to start with 3000 documents. After
+I currently have over 30,000 text documents scraped from Project Gutenberg. Due to the sheer size of them, I decided to start with 3000 documents. After
 using regex to extract dates, many of the documents still did not have a date. After manually entering dates, and manually entering some data, I
-had 1700 text documents. I am still attempting to find more sources to supplement the date that I currently have.
+had 1700 text documents. I am still attempting to find more sources to supplement the data that I currently have.
 
 # Process
 
-<img src='static/images/work_flow.png' alt='work_flow'>
+<img src='projectname/static/images/work_flow.png' alt='work_flow'>
 
 # Targets
 
