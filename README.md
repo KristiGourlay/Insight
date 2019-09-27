@@ -56,4 +56,4 @@ The project is attempting to use many different NLP models to date text document
 
 #  Accuracy  
 
-Each time period has recall and precision scores about .5, which is decent for a 6 classification model. All models, after fine-tuning, scored from 68-73 in accuracy. The biggest take away, was that the model had difficulty with the binning targets. Approx 70% of miscategorised items belonged to neighbouring category.
+Each time period has recall and precision scores above .5, which is decent for a 6 classification model. All models, after fine-tuning, scored from 68-73 in accuracy. The biggest take away, was that the model had difficulty with the binning targets. Approx 70% of miscategorised items belonged to neighbouring category.
