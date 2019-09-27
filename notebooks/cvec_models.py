@@ -16,7 +16,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.pipeline import Pipeline, make_pipeline
 
 
-df = pd.read_csv('../data/cleaned/final_df.csv', index_col=0)
+df = pd.read_csv('../data/cleaned/final_book_df.csv', index_col=0)
 
 # TRAIN TEST SPLIT
 x = df['text']

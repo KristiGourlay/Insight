@@ -3,7 +3,9 @@ import numpy as np
 import re
 import multiprocessing
 from tqdm import tqdm
-
+import catboost as cb
+from catboost import CatBoostClassifier
+from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
 
 from nltk.tokenize import RegexpTokenizer
 import nltk
@@ -20,32 +22,21 @@ from sklearn import utils
 import gensim
 from gensim.models.doc2vec import Doc2Vec, TaggedDocument
 from gensim.test.test_doc2vec import ConcatenatedDoc2Vec
+from sklearn.ensemble import RandomForestClassifier
 
-df = pd.read_csv('../data/cleaned/book_df.csv', index_col=0)
-df = pd.read_csv('finaldf_imbalanced_targets.csv', index_col=0)
 
-df = pd.read_csv('../data/cleaned/final_df.csv', index_col=0)
-# CLEANING
+
+
+df = pd.read_csv('../data/cleaned/df_with_sentiment.csv', index_col=0)
+
+df.head()
+
+
+# FURTHER CLEANING
 
 lemmatizer = WordNetLemmatizer()
 st = df['text'].tolist()
 
-
-def clean_text(raw_text):
-     raw_text = str(raw_text)
-     lower_case = raw_text.lower()
-     retokenizer = RegexpTokenizer(r'[a-z]+')
-     words = retokenizer.tokenize(lower_case)
-     return(lemmatizer.lemmatize(" ".join(words)))
-
-num_excerpts = df['text'].size
-
-clean_text_excerpts = []
-
-for i in range(0, num_excerpts):
-     clean_text_excerpts.append( clean_text( st[i] ))
-
-df['text'] = clean_text_excerpts
 
 def tokenize_text(text):
     tokens = []
@@ -155,3 +146,23 @@ logreg.fit(X_train, y_train)
 y_pred = logreg.predict(X_test)
 logreg.score(X_train, y_train)
 logreg.score(X_test, y_test)
+
+
+
+
+
+# Creating polarity(-1 1) for vectors created
+
+doc_2_vec = []
+
+
+corpus = df['text']
+
+for c in corpus:
+    doc_2_vec.append(wdv_model.infer_vector(c)[0])
+
+df['doc_2_vec'] = doc_2_vec
+
+
+df.head()
+# df.to_csv('df_with_sentiment_doc2vec.csv')

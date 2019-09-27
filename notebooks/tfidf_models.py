@@ -17,9 +17,10 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.pipeline import Pipeline, make_pipeline
 
 
-df = pd.read_csv('../data/cleaned/final_df.csv', index_col=0)
+df = pd.read_csv('../data/cleaned/final_book_df.csv', index_col=0)
+df = df.drop_duplicates(subset=['text'], keep='first', inplace=False)
 
-
+df.shape
 
 # TRAIN TEST SPLIT
 x = df['text']
