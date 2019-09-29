@@ -2,10 +2,11 @@ import pandas as pd
 import numpy as np
 import re
 import multiprocessing
+
 from tqdm import tqdm
+
 import catboost as cb
 from catboost import CatBoostClassifier
-from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
 
 from nltk.tokenize import RegexpTokenizer
 import nltk
@@ -14,8 +15,9 @@ from nltk.corpus import stopwords, wordnet
 from nltk.stem import WordNetLemmatizer
 
 import sklearn.metrics as metrics
-from sklearn.model_selection import train_test_split, cross_val_score, GridSearchCV
 from sklearn.metrics import confusion_matrix, accuracy_score
+from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
+from sklearn.model_selection import train_test_split, cross_val_score, GridSearchCV
 from sklearn.linear_model import LogisticRegression
 from sklearn import utils
 
@@ -50,7 +52,6 @@ df['text'] = df['text'].apply(tokenize_text)
 
 
 
-
 # Doc2Vec
 
 train, test = train_test_split(df, test_size=0.3, random_state=42)
@@ -67,7 +68,6 @@ cores = multiprocessing.cpu_count()
 
 wdv_model = Doc2Vec(dm=0, vector_size=300, negative=5, hs=0, min_count=1, sample = 0, workers=cores)
 
-
 wdv_model.build_vocab([x for x in tqdm(train_tagged.values)])
 
 
@@ -83,7 +83,6 @@ def vector_for_learning(model, tagged_docs):
     sents = tagged_docs.values
     targets, regressors = zip(*[(doc.tags[0], model.infer_vector(doc.words, steps=20)) for doc in sents])
     return targets, regressors
-
 
 
 
