@@ -36,11 +36,11 @@ I quickly realized that it was possible to optimize my targets, by letting the d
                       Before 1670
                       1670-1830
                       1830-1890
-                      1890-1910
-                      1910-1945
-                      1945-represent
+                      1890-1920
+                      1920-1960
+                      1960-represent
 
-By shifting the target dates 20-30 years earlier/later, I could make dates more reflective of the data.
+By shifting the target dates 20-30 years earlier/later, I could set targets more reflective of the data.
 
 # Text preparation
 
@@ -52,8 +52,8 @@ Third, I looked at most common unigrams and bigrams. I used LDA on the separate 
 
 # Modeling
 
-The project is attempting to use many different NLP models to date text documents. I have used CountVectorizer, Tf-Idf and Doc2Vec to place the text into vectors. I then paired these matrices with with Logistic Regression, and Random Forrest, and then feature engineered some columns, combining the Vadar scores, with the Doc2Vec polarity scores to use Catboost.
+The project is attempting to use many different NLP models to date text documents. I have used CountVectorizer, Tf-Idf and Doc2Vec to place the text into vectors. I then paired these matrices with with Logistic Regression, and Random Forrest, and then feature engineered some columns, combining the Vadar scores, with the Doc2Vec polarity scores to use Catboost. Overall, the most accurate model was a basic CountVectorizer with Logistic Regression.
 
 #  Accuracy  
 
-Each time period has recall and precision scores above .5, which is decent for a 6 classification model. All models, after fine-tuning, scored from 68-73 in accuracy. The biggest take away, was that the model had difficulty with the binning targets. Approx 70% of miscategorised items belonged to neighbouring category.
+Each time period has recall and precision scores above .6, which is decent for a 6 classification model. Most models, after fine-tuning, scored from 68-73 in accuracy. The biggest take away, was that the model had difficulty predicting between neighbouring targets. Over 80% of miscategorised items belonged to a neighbouring category.
