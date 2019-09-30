@@ -18,7 +18,7 @@ I started with 30,000 text documents scraped from Project Gutenberg. I quickly r
 
 # Process
 
-<img src='projectname/static/images/workflow.png' alt='work_flow'>
+<img src='projectname/static/images/workflow.png' alt='workflow'>
 
 # Targets
 
