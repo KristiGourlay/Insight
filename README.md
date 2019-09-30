@@ -22,6 +22,8 @@ I started with 30,000 text documents scraped from Project Gutenberg. I quickly r
 
 # Targets
 
+Before I could assign targets I needed to find the publication date of each book. By creating a scraper with Selenium, I repeatedly questioned Google, Duckduckgo, and Ask.com when each book was published. 
+
 When I first started my project, I decided to go with time periods of Literature generally accepted in the Literary field:
 
                       Before 1670: Renaissance
@@ -31,7 +33,7 @@ When I first started my project, I decided to go with time periods of Literature
                       1910-1945: Modernism
                       1945-present: Contemporary
 
-I quickly realized that it was possible to optimize my targets, by letting the data speak for itself. I created a optimization function (located in script/EDA) that looped through possible binning dates and found that the there was a better set of targets:
+I quickly realized that it was possible to optimize my targets, by letting the data speak for itself. I created an optimization function (located in notebooks/EDA) that looped through possible binning dates and found that the there was a better set of targets:
 
                       Before 1670
                       1670-1830
@@ -48,7 +50,7 @@ First, I had to deal with an imbalance learn. Because a majority of my books com
 
 Second, I prepared all the data for modeling. This included stemming, lemmatizing, using regex, and lowercasing.
 
-Third, I looked at most common unigrams and bigrams. I used LDA on the separate targets, and I used Vadar for some sentiment analysis.
+Third, I looked at the most common unigrams and bigrams. I used LDA on the separate targets, and I used Vadar for some sentiment analysis.
 
 # Modeling
 
