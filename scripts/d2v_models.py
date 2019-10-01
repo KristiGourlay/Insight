@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import re
 import multiprocessing
-
+from sklearn.pipeline import Pipeline
 from tqdm import tqdm
 
 import catboost as cb
@@ -27,12 +27,11 @@ from gensim.test.test_doc2vec import ConcatenatedDoc2Vec
 from sklearn.ensemble import RandomForestClassifier
 
 
+df = pd.read_csv('../data/cleaned/book_df.csv', index_col=0)
+df.head(2)
 
-
-df = pd.read_csv('../data/cleaned/df_with_sentiment.csv', index_col=0)
-
-df.head()
-
+df.target.value_counts()
+df = df.drop_duplicates(subset=['info'])
 
 # FURTHER CLEANING
 
@@ -50,11 +49,11 @@ def tokenize_text(text):
     return tokens
 df['text'] = df['text'].apply(tokenize_text)
 
-
+df['text'] = df['text'].astype('str')
 
 # Doc2Vec
 
-train, test = train_test_split(df, test_size=0.3, random_state=42)
+train, test = train_test_split(df, test_size=0.1, random_state=42, stratify=df.target)
 
 train_tagged = train.apply(
     lambda r: TaggedDocument(words=(r['text']), tags=[r.target]), axis=1)
@@ -88,13 +87,16 @@ def vector_for_learning(model, tagged_docs):
 
 y_train, X_train = vector_for_learning(wdv_model, train_tagged)
 y_test, X_test = vector_for_learning(wdv_model, test_tagged)
-logreg = LogisticRegression(C=1, solver='lbfgs', class_weight='balanced')
+logreg = LogisticRegression(C=.001, solver='lbfgs', class_weight='balanced')
 logreg.fit(X_train, y_train)
 y_pred = logreg.predict(X_test)
 
 
 logreg.score(X_train, y_train)
 logreg.score(X_test, y_test)
+
+
+
 
 
 
@@ -115,7 +117,7 @@ y_test, X_test = vector_for_learning(dmm_model, test_tagged)
 logreg.fit(X_train, y_train)
 y_pred = logreg.predict(X_test)
 
-
+logreg.score(X_train, y_train)
 logreg.score(X_test, y_test)
 print('Testing accuracy %s' % accuracy_score(y_test, y_pred))
 
@@ -139,15 +141,18 @@ def get_vectors(model, tagged_docs):
 y_train, X_train = get_vectors(new_model, train_tagged)
 y_test, X_test = get_vectors(new_model, test_tagged)
 
+from imblearn.over_sampling import SMOTE
 
-logreg = LogisticRegression(class_weight='balanced')
+logreg = LogisticRegression(C=.01, class_weight='balanced')
+sm = SMOTE()
+X_train, y_train = sm.fit_sample(X_train, y_train)
 logreg.fit(X_train, y_train)
 y_pred = logreg.predict(X_test)
 logreg.score(X_train, y_train)
 logreg.score(X_test, y_test)
 
 
-
+y_pred
 
 
 # Creating polarity(-1 1) for vectors created
@@ -164,4 +169,4 @@ df['doc_2_vec'] = doc_2_vec
 
 
 df.head()
-# df.to_csv('df_with_sentiment_doc2vec.csv')
+# df.to_csv('../data/cleaned/df_with_sentiment_doc2vec.csv')
