@@ -39,8 +39,8 @@ I quickly realized that it was possible to optimize my targets, by letting the d
                       1670-1830
                       1830-1890
                       1890-1920
-                      1920-1960
-                      1960-represent
+                      1920-1950
+                      1950-present
 
 By shifting the target dates 20-30 years earlier/later, I could set targets more reflective of the data.
 
