@@ -61,7 +61,7 @@ Hath, Thou, Shall, and Thy are words that automatically make someone think of Sh
 The use of the word 'upon' is frequent through the middle targets, and drops out around 1920, and the rise of 'world' in the last 100 years evokes ideas of humans becoming more 'worldly' and the rise of Science Fiction and themes of dystopian worlds.
 
 
-Third, I used Latent Dirichlet Allocation (LDA) on the separate targets to find common themes, and I used Vadar for some sentiment analysis. If we were to compare the time periods as a whole against one another I could see some differences in composite, positive, neutral, and negative means, but sentiment analysis did not provide much predictive power for individual document excerpts. 
+Third, I used Latent Dirichlet Allocation (LDA) on the separate targets to find common themes, and I used Vader for some sentiment analysis. If we were to compare the time periods as a whole against one another I could see some differences in composite, positive, neutral, and negative means, but sentiment analysis did not provide much predictive power for individual document excerpts. 
 
 # Modeling
 
@@ -87,7 +87,7 @@ Second, I had to deal with the overfitting. Using regularization, I was able to 
 
 #  Accuracy  
 
-Each time period has precision scores above 60% and recall scores about 70%, which is decent for a 6 classification model. The biggest take away, was that the model had difficulty predicting between neighbouring targets. Over 80% of miscategorised items belonged to a neighbouring category. This shows the inherent limitation of creating a classification model attempting to predict dates. Inevitably borderline dates will be miscategorized. However, in the end, we can say that using Natural Language Processing, it is possible to predict (roughly) when a piece of literatue was published.
+Each time period has precision scores above 60% and recall scores about 70%, which is decent for a 6 classification model. The biggest take away, was that the model had difficulty predicting between neighbouring targets. Over 80% of miscategorised items belonged to a neighbouring category. This shows the inherent limitation of creating a classification model attempting to predict dates. Inevitably borderline dates will be miscategorized. However, the project shows, that even with a limited dataset, we can use Natural Language Processing to predict (roughly) when a piece of literatue was published.
 
 # Web App
 
