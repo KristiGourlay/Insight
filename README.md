@@ -25,7 +25,7 @@ Data collection was by far the most challenging part of this study. I started wi
 
 Now that I had dates, courtesy of my Selenium scraper, I was able to start thinking of how I would bin publication dates into time periods. When I first started my project, I decided to go with time periods of Literature generally accepted in the Literary field:
 
-<img src='projectname/static/images/original_dates.png' alt='originaldates'>
+<img src='projectname/static/images/original_dates.png' width='200' height='40' alt='originaldates'>
 
 I quickly realized that it was possible to optimize my targets, by letting the data speak for itself. I created an optimization function (with a Logisitic regression or RandomForest model using countvectorizer or tfidf vectors) that looped through possible binning dates and found that the there was a better set of targets:
 
