@@ -44,7 +44,7 @@ Second, I looked at the most common unigrams and bigrams with countvectorizer. I
 
 Hath, Thou, Shall, and Thy are words that automatically make someone think of Shakespearean era literature. And the idea that France is frequent in the 1670-1830 period should be of no surpise to history buffs who know that England and France were in constant warfare in this period.
 
-<img src='projectname/static/images/tfidf2.png' width='400' height='275' alt='t2'>
+<img src='projectname/static/images/tfidf2.png' width='500' height='300' alt='t2'>
 
 The use of the word 'upon' is frequent through the middle targets, and drops out around 1920, and the rise of 'world' in the last 100 years evokes ideas of humans becoming more 'worldly' and the rise of Science Fiction and themes of distopian worlds.
 
