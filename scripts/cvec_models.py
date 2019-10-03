@@ -71,6 +71,8 @@ model = LogisticRegression()
 model.fit(train_data_features, y_train)
 
 model.score(train_data_features, y_train)
+preds = model.predict(test_data_features)
+
 
 def classification_metrics(y_test, y_pred):
     print(f' Accuracy Score: {accuracy_score(y_test, preds)}')
@@ -86,7 +88,7 @@ sm = SMOTE()
 x_reb, y_reb = sm.fit_sample(train_data_features, y_train)
 
 
-log_reg = LogisticRegression(C=.01, class_weight='balanced')
+log_reg = LogisticRegression(C=.01, solver='lbfgs', class_weight='balanced', multi_class='multinomial')
 log_reg.fit(x_reb, y_reb)
 
 cross_val_score(log_reg, x_reb, y_reb, cv=5).mean()
@@ -137,10 +139,11 @@ cvec_pipe = Pipeline([
 
 
 cvec_pipe.fit(x_train, y_train)
-
+import joblib
 
 pickle.dump(cvec_pipe, open('../projectname/bots_and_pickles/cvec_model.pkl', 'wb'))
 
+joblib.dump(cvec_pipe, 'cvec_pipe.sav')
 
 
 
