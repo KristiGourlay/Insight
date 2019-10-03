@@ -99,3 +99,21 @@ The final web application, hosted on AWS, takes in an excerpt from a book and re
 
 www.docdate.ca/home
 
+# Tech Stack:
+
+* pandas
+* numpy
+* sklearn
+* requests
+* beautiful soup
+* selenium
+* regex
+* nltk
+* vaderSentiment
+* gensim
+* altair
+* pickle
+* catboost
+* flask
+* HTML
+* CSS
