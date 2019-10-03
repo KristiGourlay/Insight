@@ -29,7 +29,7 @@ Now that I had dates, courtesy of my Selenium scraper, I was able to start think
 
 I quickly realized that it was possible to optimize my targets, by letting the data speak for itself. I created an optimization function (with a Logisitic regression or RandomForest model using countvectorizer or tfidf vectors) that looped through possible binning dates and found that the there was a better set of targets:
 
-<img src='projectname/static/images/optimized_dates.png' width='600' height='400' alt='optimizeddates'>
+<img src='projectname/static/images/optimized_dates.png' width='500' height='300' alt='optimizeddates'>
 
 By shifting the target dates 20-30 years earlier/later, I could set targets more reflective of the data. The final dates performed decently well on all combinations of vectors and models, while taking imbalance into account.
 
@@ -40,11 +40,11 @@ First, I prepared all the data for modeling. This included stemming, lemmatizing
 Second, I looked at the most common unigrams and bigrams with countvectorizer. I also looked at Tfidf to see words that were common in certain time periods in contrast to the whole corpus. These analyses allowed me a glimpse into how vocabulary has evolved over the last 400 years.
 
 
-<img src='projectname/static/images/tfidf1.png' alt='t1'>
+<img src='projectname/static/images/tfidf1.png' width='500' height='300' alt='t1'>
 
 Hath, Thou, Shall, and Thy are words that automatically make someone think of Shakespearean era literature. And the idea that France is frequent in the 1670-1830 period should be of no surpise to history buffs who know that England and France were in constant warfare in this period.
 
-<img src='projectname/static/images/tfidf2.png' alt='t2'>
+<img src='projectname/static/images/tfidf2.png' width='500' height='300' alt='t2'>
 
 The use of the word 'upon' is frequent through the middle targets, and drops out around 1920, and the rise of 'world' in the last 100 years evokes ideas of humans becoming more 'worldly' and the rise of Science Fiction and themes of distopian worlds.
 
@@ -66,12 +66,12 @@ As is to be expected with a dataset with relatively few data points (1097) in co
 
 First I decided to use scikit-learn imblance learn to rebalance the data. I decided to use SMOTE (Synthetic Minority Over-sampling Tecnique) because a) with such a small dataset to begin with, I did not want to undersample the majority class and lose valuable information and b) the ratio between the minority and majority classes was not large enough for Adasyn and SMOTE performed better than BorderlineSMOTE.
 
-<img src='projectname/static/images/imbalance_smote.png' alt='smote'>
+<img src='projectname/static/images/imbalance_smote.png' width='500' height='300'  alt='smote'>
 
 
 Second, I have to deal with the overfitting. USing regularization, I was able to downscale the common words, and accenturate the informative words resulting in a better test score. Using a gridsearchCV, I found that regularization using Ridge Regression (L2) with alpha set to .001, resulted in lower train score around 81% and test score raising to 73%. 
 
-<img src='projectname/static/images/regularization.png' alt='regularization'>
+<img src='projectname/static/images/regularization.png' width='500' height='300' alt='regularization'>
 
 #  Accuracy  
 
