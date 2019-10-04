@@ -78,12 +78,12 @@ As is to be expected with a dataset with relatively few data points (1097) in co
 
 First I decided to use scikit-learn imblance learn to rebalance the data. I decided to use SMOTE (Synthetic Minority Over-sampling Tecnique) because a) with such a small dataset to begin with, I did not want to undersample the majority class and lose valuable information and b) the ratio between the minority and majority classes was not large enough for Adasyn and SMOTE performed better than BorderlineSMOTE.
 
-<img src='projectname/static/images/imbalance_smote.png' width='500' height='300'  alt='smote'>
+<img src='projectname/static/images/imbalance_smote.png' width='450' height='300'  alt='smote'>
 
 
 Second, I had to deal with the overfitting. Using regularization, I was able to downscale the common words, and accentuate the informative words resulting in a better test score. Using a gridsearchCV, I found that regularization using Ridge Regression (L2) with alpha set to .001, resulted in lower train score around 81% and test score raising to 73%. 
 
-<img src='projectname/static/images/regularization.png' width='500' height='300' alt='regularization'>
+<img src='projectname/static/images/regularization.png' width='450' height='300' alt='regularization'>
 
 #  Accuracy  
 
