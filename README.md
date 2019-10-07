@@ -23,17 +23,7 @@ Data collection was by far the most challenging part of this project. I started 
 
 # Targets
 
-Now that I had dates, courtesy of my Selenium scraper, I was able to start thinking of how to bin publication dates into time periods. When I first started my project, I decided to go with time periods of Literature generally accepted in the Literary field:
-
-                          Industry Consensus:						
-                          Before 1670: Renaissance	 				
-                          1670-1830: Enlightenment 				
-                          1830-1870: Romantic Period 				
-                          1870-1920: Victorian 						
-                          1920-1945: Modernism 					
-                          1945-present: Contemporary 				
-
-I quickly realized that it was possible to optimize my targets, by letting the data speak for itself. I created an optimization function (with a Logisitic regression or RandomForest model using countvectorizer or tfidf vectors) that looped through possible binning dates and vectorizing/modeling and found that there was a better set of targets:
+Now that I had dates, courtesy of my Selenium scraper, I was able to start thinking of how to bin publication dates into time periods. When I first started my project, I decided to go with time periods of Literature generally accepted in the Literary field: Renaissance, Enlightenment, Romantic, Victorian, Modern, and Contemporary. This is because, an integral part of my project was the desire to find commonalities in vocabulary and style, in certain time periods. However, while there is a consensus concerning these timeperiods, the exact dates tend to fluctuate by 10-30 years on either side. This is because certain styles, for example Literary Realism (think George Elliot) or the Transcendental Movement (think Louise May Alcott) span two time periods (Romantic and Victorian). Instead of blindly choosing targets, I quickly realized that it was possible to optimize my targets, by letting the data speak for itself. I created an optimization function (with a Logisitic regression or RandomForest model using countvectorizer or tfidf vectors) that looped through possible binning dates and vectorizing/modeling and found the most accurate targets, that were most reflective of the data:
 
                           Optimized Dates (Number of excerpts):
                           Before 1670 (149)
@@ -43,7 +33,7 @@ I quickly realized that it was possible to optimize my targets, by letting the d
                           1920 - 1950 (172)
                           1950 - present (269)
 
-By shifting the target dates 20-30 years earlier/later, I could set targets more reflective of the data. The final dates performed decently well on all combinations of vectors and models, while taking imbalance into account.
+The final dates performed decently well on all combinations of vectors and models, while taking imbalance into account.
 
 # Text preparation and EDA
 
