@@ -19,7 +19,7 @@ The usefulness of this model is its ability to aid in the dating of historical d
 
 Data collection was by far the most challenging part of this project. I started with 30,000 text documents scraped from Project Gutenberg. I quickly realised that many of the text documents did not have dates, and even more did not have proper dates (ie. Second, Third, and Fourth publications of books). I then supplemented my initial data set with works from The Literature Network. Both of these sites focus primarily on books that are out of publication, and thus, are all written before 1920. In order to balance the dataset, I had to get creative, and find excerpts from more modern and contemporary books. These excerpts were provided by scraping Reddit (redditors' favourite book excerpts of all time) and a couple Magazine articles on best excerpts from the last 100 years. After concatenating these scrapings, the next hurdle I needed to jump was the fact that I had excerpts, but no targets. This was solved by creating a webscraper with Selenium that was able to repeatedly ask Google.com, Ask.com, and DuckDuckGo.com "when was {book} published?" After cleaning (and manually confirming) dates, my  dataset was ready for processing.
 
-![](ezgif.com-video-to-gif.gif)
+![](projectname/static/images/ezgif.com-video-to-gif.gif)
 
 # Targets
 
