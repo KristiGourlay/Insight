@@ -1,4 +1,4 @@
-# Time Period Prediction Based on NLP
+# DocDate: Classifying text by time period
 
 My project will take excerpts from books from various time periods and predict when they were written. The project
 analyzes text from similar time periods for similarities in both vocabulary and style. The final web app will accept an excerpt from a piece of work and predict what time period the writing was produced. To narrow the scope, I have decided to first focus primarily on Fiction works. In the future I hope to widen the scope and extend this model to predict on Non-Fiction as well.
