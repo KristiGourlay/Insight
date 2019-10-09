@@ -55,7 +55,7 @@ Third, I used Latent Dirichlet Allocation (LDA) on the separate targets to find 
 
 # Modeling
 
-I attempted many different models. I vectorized with CountVectorizer and Tf-idf and modeled with Logistic Regression and RandomForest. I used Doc2Vec. I also feature engineered, creating a dataset with sentiment analysis features and polarity Doc2Vec score. I attempted to Catboost with these features (concatenated with Tfidf matrix). 
+I attempted many different models. I vectorized with CountVectorizer and Tf-idf and modeled with Logistic Regression, RandomForest and MultinomialNB. I used Doc2Vec. I also feature engineered, creating a dataset with sentiment analysis features and polarity Doc2Vec score. I attempted to Catboost with these features (concatenated with Tfidf matrix). 
 
 <img src='projectname/static/images/features_df.png' alt='features'>
 
