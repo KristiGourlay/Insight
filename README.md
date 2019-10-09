@@ -12,7 +12,7 @@ The usefulness of this model is its ability to aid in the dating of historical d
 
 # Process
 
-<img src='projectname/static/images/workflow2.png' alt='workflow'>
+<img src='projectname/static/images/workflow3.png' alt='workflow'>
 
 
 # Data
