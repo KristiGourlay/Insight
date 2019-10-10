@@ -1,6 +1,6 @@
 # DocDate: Classifying text by time period
 
-My project will take excerpts from books from various time periods and predict when they were written. The project
+My project will take excerpts from books and predict the time period from which when they were written. The project
 analyzes text from similar time periods for similarities in both vocabulary and style. The final web app will accept an excerpt from a piece of work and predict what time period the writing was produced. To narrow the scope, I have decided to first focus primarily on Fiction works. In the future I hope to widen the scope and extend this model to predict on Non-Fiction as well.
 
 <img src='projectname/static/images/books.png' alt='booksimage'>
@@ -55,7 +55,7 @@ Third, I used Latent Dirichlet Allocation (LDA) on the separate targets to find 
 
 # Modeling
 
-I attempted many different models. I vectorized with CountVectorizer and Tf-idf and modeled with Logistic Regression and RandomForest. I used Doc2Vec. I also feature engineered, creating a dataset with sentiment analysis features and polarity Doc2Vec score. I attempted to Catboost with these features (concatenated with Tfidf matrix). 
+I attempted many different models. I vectorized with CountVectorizer and Tf-idf and modeled with Logistic Regression, RandomForest and MultinomialNB. I used Doc2Vec. I also feature engineered, creating a dataset with sentiment analysis features and polarity Doc2Vec score. I attempted to Catboost with these features (concatenated with Tfidf matrix). 
 
 <img src='projectname/static/images/features_df.png' alt='features'>
 
