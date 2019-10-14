@@ -88,6 +88,7 @@ The final web application, hosted on AWS, takes in an excerpt from a book and re
 <img src='projectname/static/images/webapp2.png' alt='webapp2'>
 
 www.docdate.ca/home
+*It works best on larger excerpts.
 
 # Tech Stack:
 
