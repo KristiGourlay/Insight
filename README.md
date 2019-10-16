@@ -12,7 +12,7 @@ The usefulness of this model is its ability to aid in the dating of historical d
 
 # Process
 
-<img src='projectname/static/images/workflow3.png' alt='workflow'>
+<img src='projectname/static/images/workflow3.png' alt='workflow3'>
 
 
 # Data
@@ -77,17 +77,18 @@ Second, I had to deal with the overfitting. Using regularization, I was able to 
 
 #  Accuracy  
 
-Each time period has precision scores above 60% and recall scores above 70%, which is decent for a 6 classification model. The biggest take away, was that the model had difficulty predicting between neighbouring targets. Over 80% of miscategorised items belonged to a neighbouring category. This shows the inherent limitation of creating a classification model attempting to predict dates. Inevitably borderline dates will be miscategorized. However, the project shows, that even with a limited dataset, we can use Natural Language Processing to classify the time period that a piece of literature was published.
+Each time period has precision scores above 60% and recall scores above 70%, which is decent for a 6 classification model. The biggest take away, was that the model had difficulty predicting between neighbouring targets. Over 80% of miscategorised items belonged to a neighbouring category. This shows the inherent limitation of creating a classification model attempting to predict dates. Inevitably borderline dates will be miscategorized. However, the project shows, that even with a limited dataset, we can use Natural Language Processing to classify the time period that a piece of literature was published. 
 
 # Web App
 
-The final web application, hosted on AWS, takes in an excerpt from a book and returns a prediction on the time period it was created.
+The final web application, hosted on AWS, takes in an excerpt from a book and returns a prediction on the time period it was created. It works best on larger excerpts.
 
 <img src='projectname/static/images/webapp.png' alt='webapp'>
 
 <img src='projectname/static/images/webapp2.png' alt='webapp2'>
 
 www.docdate.ca/home
+
 
 # Tech Stack:
 
