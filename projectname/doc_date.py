@@ -30,13 +30,13 @@ def decoder(prediction):
     if prediction == 1:
         return('The Restoration and the Age of Enlightenment (1670-1830)')
     if prediction == 2:
-        return('The Romantic Period (1830-1870)')
+        return('The Romantic Period (1830-1890)')
     if prediction == 3:
-        return('The Late Victorian Era (Naturalism and Realism) (1870-1910)')
+        return('The Late Victorian Era (Naturalism and Realism) (1890-1920)')
     if prediction == 4:
-        return('The Modernist Period (1910-1945)')
+        return('The Modernist Period (1920-1950)')
     if prediction == 5:
-        return('The Contemporary Period (1945-present)')
+        return('The Contemporary Period (1950-present)')
     else:
         return('Try Again')
 
@@ -68,6 +68,11 @@ app = flask.Flask(__name__)
 def home():
    with open("templates/home.html", 'r') as home:
        return home.read()
+
+@app.route('/about')
+def about():
+    with open('templates/about.html', 'r') as about:
+        return about.read()
 
 @app.route('/result', methods=['POST', 'GET'])
 def result():
