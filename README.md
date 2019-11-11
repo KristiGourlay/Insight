@@ -87,7 +87,7 @@ The final web application (docdate.ca/home) was hosted on AWS. It took in an exc
 
 <img src='projectname/static/images/webapp2.png' alt='webapp2'>
 
-![](projectname/static/images/ezgif.com-video-to-gif.gif)
+![](projectname/static/images/docdate.gif)
 
 
 
