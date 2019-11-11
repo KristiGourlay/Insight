@@ -81,13 +81,14 @@ Each time period has precision scores above 60% and recall scores above 70%, whi
 
 # Web App
 
-The final web application, hosted on AWS, takes in an excerpt from a book and returns a prediction on the time period it was created. It works best on larger excerpts.
+The final web application (docdate.ca/home) was hosted on AWS. It took in an excerpt from a book and returned a prediction on the time period it was created. 
 
 <img src='projectname/static/images/webapp.png' alt='webapp'>
 
 <img src='projectname/static/images/webapp2.png' alt='webapp2'>
 
-www.docdate.ca/home
+![](projectname/static/images/ezgif.com-video-to-gif.gif)
+
 
 
 # Tech Stack:
