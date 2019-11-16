@@ -9,7 +9,12 @@ body {
 }
 
 body {
-  color: white;
+  color: black;
   text-align: center;
-  font-size: 250%;
+  font-size: 300%;
+}
+
+p {
+  background-color: beige;
+  background-opacity: 0.5;
 }

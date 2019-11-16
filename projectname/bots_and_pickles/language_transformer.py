@@ -7,31 +7,29 @@ from nltk.stem import WordNetLemmatizer
 
 class LanguageTransformer(TransformerMixin):
 
-    def fit(self, x_train):
+    def fit(self, raw_text):
         return self
 
-    def transform(self, x_train):
-        new_list = []
-        new_line = []
-        final_line = []
-        final_entry = []
-        for item in x_train:
-            new_list.append(item + ', ')
-            for list_item in new_list:
-                new_line.append(list_item.split())
-                for line in new_line:
-                    final_line = []
-                    for word in line:
-                        lemmatizer = WordNetLemmatizer()
-                        raw_text = str(word)
-                        string_lower_case = raw_text.lower()
-                        # new_text = string_lower_case.astype('U')
-                        retokenizer = RegexpTokenizer(r'[a-z]+')
-                        words = retokenizer.tokenize(string_lower_case)
-                        lemm_words = lemmatizer.lemmatize(" ".join(words))
-                        final_line.append(lemm_words)
+    def clean_text(self, raw_text):
 
-                final_entry.append(final_line)
+        raw_text = str(raw_text)
+        lower_case = raw_text.lower()
+        retokenizer = RegexpTokenizer(r'[a-z]+')
+        words = retokenizer.tokenize(lower_case)
+        new_words = " ".join(words)
+        return new_words
 
+    def lemm(self, new_words):
+        lemmatizer = WordNetLemmatizer()
 
-        return final_entry
+        final_sentences = []
+        for line in new_words:
+            line = str(line)
+            line = line.split()
+            new_sentence = []
+            for word in line:
+                new_word = lemmatizer.lemmatize(word)
+                new_sentence.append(new_word)
+            final_sentences.append(new_sentence)
+
+        return final_sentences
