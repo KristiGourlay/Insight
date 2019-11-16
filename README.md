@@ -3,7 +3,7 @@
 My project will take excerpts from books and predict the time period from which when they were written. The project
 analyzes text from similar time periods for similarities in both vocabulary and style. The final web app will accept an excerpt from a piece of work and predict what time period the writing was produced. To narrow the scope, I have decided to first focus primarily on Fiction works. In the future I hope to widen the scope and extend this model to predict on Non-Fiction as well.
 
-<img src='projectname/static/images/books.png' alt='booksimage'>
+<img src='doc_date/static/images/books.png' alt='booksimage'>
 
 
 # Motivation
@@ -12,14 +12,14 @@ The usefulness of this model is its ability to aid in the dating of historical d
 
 # Process
 
-<img src='projectname/static/images/workflow3.png' alt='workflow3'>
+<img src='doc_date/static/images/workflow3.png' alt='workflow3'>
 
 
 # Data
 
 Data collection was by far the most challenging part of this project. I started with 30,000 text documents scraped from Project Gutenberg. I quickly realised that many of the text documents did not have dates, and even more did not have proper dates (ie. Second, Third, and Fourth publications of books). I then supplemented my initial data set with works from The Literature Network. Both of these sites focus primarily on books that are out of publication, and thus, are all written before 1920. In order to balance the dataset, I had to get creative, and find excerpts from more modern and contemporary books. These excerpts were provided by scraping Reddit (redditors' favourite book excerpts of all time) and a couple Magazine articles on best excerpts from the last 100 years. After concatenating these scrapings, the next hurdle I needed to jump was the fact that I had excerpts, but no targets. This was solved by creating a webscraper with Selenium that was able to repeatedly ask Google.com, Ask.com, and DuckDuckGo.com "when was {book} published?" After cleaning (and manually confirming) dates, my  dataset was ready for processing.
 
-![](projectname/static/images/ezgif.com-video-to-gif.gif)
+![](doc_date/static/images/ezgif.com-video-to-gif.gif)
 
 # Targets
 
@@ -42,11 +42,11 @@ First, I prepared all the data for modeling. This included stemming, lemmatizing
 Second, I looked at the most common unigrams and bigrams with countvectorizer. I also looked at Tfidf to see words that were common in certain time periods in contrast to the whole corpus. These analyses allowed me a glimpse into how vocabulary has evolved over the last 400 years.
 
 
-<img src='projectname/static/images/tfidf1.png' width='500' height='300' alt='t1'>
+<img src='doc_date/static/images/tfidf1.png' width='500' height='300' alt='t1'>
 
 Hath, Thou, Shall, and Thy are words that automatically make someone think of Shakespearean era literature. And the idea that France is frequent in the 1670-1830 period should be of no surpise to history buffs who know that England and France were in constant warfare in this period.
 
-<img src='projectname/static/images/tfidf2.png' width='500' height='300' alt='t2'>
+<img src='doc_date/static/images/tfidf2.png' width='500' height='300' alt='t2'>
 
 The use of the word 'upon' is frequent through the middle targets, and drops out around 1920, and the rise of 'world' in the last 100 years evokes ideas of humans becoming more 'worldly' and the rise of Science Fiction and themes of dystopian worlds.
 
@@ -57,7 +57,7 @@ Third, I used Latent Dirichlet Allocation (LDA) on the separate targets to find 
 
 I attempted many different models. I vectorized with CountVectorizer and Tf-idf and modeled with Logistic Regression, RandomForest and MultinomialNB. I used Doc2Vec. I also feature engineered, creating a dataset with sentiment analysis features and polarity Doc2Vec score. I attempted to Catboost with these features (concatenated with Tfidf matrix). 
 
-<img src='projectname/static/images/features_df.png' alt='features'>
+<img src='doc_date/static/images/features_df.png' alt='features'>
 
 All of these models scored somewhere between 50 and 65% in Accuracy. In the end, and not surprisingly, the most predictive feature in text for predicting time period was the vocabulary. The best model was a basic Logistic Regression using CountVectorizer. 
 
@@ -68,12 +68,12 @@ As is to be expected with a dataset with relatively few data points (1097) in co
 
 First I decided to use scikit-learn imblance learn to rebalance the data. I decided to use SMOTE (Synthetic Minority Over-sampling Tecnique) because a) with such a small dataset to begin with, I did not want to undersample the majority class and lose valuable information and b) the ratio between the minority and majority classes was not large enough for Adasyn and SMOTE performed better than BorderlineSMOTE.
 
-<img src='projectname/static/images/imbalance_smote.png' width='400' height='325'  alt='smote'>
+<img src='doc_date/static/images/imbalance_smote.png' width='400' height='325'  alt='smote'>
 
 
 Second, I had to deal with the overfitting. Using regularization, I was able to downscale the common words, and accentuate the informative words resulting in a better test score. Using a gridsearchCV, I found that regularization using Ridge Regression (L2) with alpha set to .001, resulted in lower train score around 81% and test score raising to 73%. 
 
-<img src='projectname/static/images/regularization.png' width='400' height='325' alt='regularization'>
+<img src='doc_date/static/images/regularization.png' width='400' height='325' alt='regularization'>
 
 #  Accuracy  
 
@@ -83,11 +83,11 @@ Each time period has precision scores above 60% and recall scores above 70%, whi
 
 The final web application (docdate.ca/home) was hosted on AWS. It took in an excerpt from a book and returned a prediction on the time period it was created. 
 
-<img src='projectname/static/images/webapp.png' alt='webapp'>
+<img src='doc_date/static/images/webapp.png' alt='webapp'>
 
-<img src='projectname/static/images/webapp2.png' alt='webapp2'>
+<img src='doc_date/static/images/webapp2.png' alt='webapp2'>
 
-![](projectname/static/images/docdate.gif)
+![](doc_date/static/images/docdate.gif)
 
 
 
