@@ -3,11 +3,9 @@ import numpy as np
 import sklearn.metrics as metrics
 import pickle
 
-from nltk.tokenize import RegexpTokenizer
 import nltk
-
+from nltk.tokenize import RegexpTokenizer
 from nltk.corpus import stopwords
-from nltk.stem import WordNetLemmatizer
 
 from imblearn.over_sampling import SMOTE
 from sklearn.ensemble import RandomForestClassifier
@@ -44,8 +42,6 @@ tvec = TfidfVectorizer(stop_words='english',
 train_data_tfid = tvec.fit_transform(x_train.apply(lambda x: np.str_(x)))
 
 test_data_tfid = tvec.transform(x_test.apply(lambda x: np.str_(x)))
-
-
 
 
 #GridSearchCV
