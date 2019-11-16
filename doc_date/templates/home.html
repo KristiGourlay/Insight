@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+ <title>DocDate</title>
+ <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="../static/styles/stylesheet.css">
+ <!-- <link href="theme/css/custom.css" rel="stylesheet"> -->
+   <nav class="navbar navbar-expand-sm bg-light">
+     <div class="container">
+     <h2><a href="{{ SITEURL }}"><font color="black"><b>DocDate</b></a></font></h2>
+     <div class="btn-group btn-group-lg" role="group">
+     <ul class="row my-2 my-sm-0 mx-md-n5">
+       <a href="http://0.0.0.0:5000/home"><button type="button" class="btn btn-outline-light text-dark">DocDate</button></a>&nbsp;
+       <a href="/about"><button type="button" class="btn btn-outline-light text-dark">About</button></a>&nbsp;
+       <a href="https://kristigourlay.github.io/blog/"><button type="button" class="btn btn-outline-light text-dark">Blog</button></a>&nbsp;
+     </ul>
+     </div>
+     </div>
+   </nav>
+</head>
+<body>
+
+  <body>
+    <center>Enter text from the piece of work you would like to know the date of origin.<center>
+
+    <form action="http://0.0.0.0:5000/result" method="POST">
+
+      <!-- <p>Text:  <input type="text" name="text" /></p> -->
+      <center><input id='textboxid' type="text" name="text" /></p>
+
+      <!-- <p><input type="submit" value="submit" /></p> -->
+      <center><button type="submit" class="btn btn-secondary">Submit</button>
+
+  </form>
+  <!--
+      <img src="../static/images/books.png" width="1000" height="800" alt="books"> -->
+
+
+
+  </body>
+  </html>

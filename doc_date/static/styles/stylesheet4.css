@@ -1,0 +1,20 @@
+body {
+ background-image: url("../images/modernbooks.png");
+ background-repeat: no-repeat;
+ background-size: 2200px 800px;
+}
+
+body {
+  background-color: black;
+}
+
+body {
+  color: black;
+  text-align: center;
+  font-size: 300%;
+}
+
+p {
+  background-color: beige;
+  background-opacity: 0.5;
+}
