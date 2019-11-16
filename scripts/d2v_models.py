@@ -35,9 +35,7 @@ df = df.drop_duplicates(subset=['info'])
 
 # FURTHER CLEANING
 
-lemmatizer = WordNetLemmatizer()
 st = df['text'].tolist()
-
 
 def tokenize_text(text):
     tokens = []
@@ -47,6 +45,7 @@ def tokenize_text(text):
                 continue
             tokens.append(word.lower())
     return tokens
+
 df['text'] = df['text'].apply(tokenize_text)
 
 df['text'] = df['text'].astype('str')
@@ -96,10 +95,6 @@ logreg.score(X_train, y_train)
 logreg.score(X_test, y_test)
 
 
-
-
-
-
 # Distributed Memory model (Doc2Vec)
 
 dmm_model = Doc2Vec(dm=1, dm_mean=1, vector_size=300, window=10, negative=5, min_count=1, workers=5, alpha=0.065, min_alpha=0.065)
@@ -145,20 +140,19 @@ from imblearn.over_sampling import SMOTE
 
 logreg = LogisticRegression(C=.01, class_weight='balanced')
 sm = SMOTE()
+
 X_train, y_train = sm.fit_sample(X_train, y_train)
 logreg.fit(X_train, y_train)
+
 y_pred = logreg.predict(X_test)
 logreg.score(X_train, y_train)
 logreg.score(X_test, y_test)
 
 
-y_pred
-
 
 # Creating polarity(-1 1) for vectors created
 
 doc_2_vec = []
-
 
 corpus = df['text']
 

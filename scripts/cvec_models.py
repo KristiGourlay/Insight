@@ -3,10 +3,7 @@ import numpy as np
 import sklearn.metrics as metrics
 import pickle
 
-from nltk.tokenize import RegexpTokenizer
-import nltk
 from nltk.corpus import stopwords
-from nltk.stem import WordNetLemmatizer
 
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
@@ -19,6 +16,7 @@ from imblearn.over_sampling import SMOTE
 
 df = pd.read_csv('../data/cleaned/book_df.csv', index_col=0)
 df = df.drop_duplicates(subset=['text'])
+
 # TRAIN TEST SPLIT
 x = df['text']
 y = df['target']
@@ -62,10 +60,6 @@ gs.fit(train_data_features, y_train)
 gs.best_params_
 
 
-
-
-
-
 # Logistic Regression with CountVectorizer
 model = LogisticRegression()
 model.fit(train_data_features, y_train)
@@ -99,11 +93,7 @@ print(log_reg.score(test_data_features, y_test))
 preds = log_reg.predict(test_data_features)
 
 
-
-
 classification_metrics(y_test, preds)
-
-
 
 
 #Comparing prediction to test targets
@@ -128,7 +118,6 @@ borderline_dates = len(comparison[comparison['difference'] <= 1]) / len(comparis
 borderline_dates
 
 
-
 #pipeline
 
 cvec_pipe = Pipeline([
@@ -139,7 +128,6 @@ cvec_pipe = Pipeline([
 
 
 cvec_pipe.fit(x_train, y_train)
-import joblib
 
 pickle.dump(cvec_pipe, open('../projectname/bots_and_pickles/cvec_model.pkl', 'wb'))
 
