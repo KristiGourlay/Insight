@@ -74,10 +74,9 @@ First I decided to use scikit-learn imblance learn to rebalance the data. I deci
 Second, I had to deal with the overfitting. Using regularization, I was able to downscale the common words, and accentuate the informative words resulting in a better test score. Using a gridsearchCV, I found that regularization using Ridge Regression (L2) with alpha set to .001, resulted in lower train score around 81% and test score raising to 73%. 
 
 <img src='doc_date/static/images/regularization.png' width='400' height='325' alt='regularization'>
+ 
 
-#  Accuracy  
-
-Each time period has precision scores above 60% and recall scores above 70%, which is decent for a 6 classification model. The biggest take away, was that the model had difficulty predicting between neighbouring targets. Over 80% of miscategorised items belonged to a neighbouring category. This shows the inherent limitation of creating a classification model attempting to predict dates. Inevitably borderline dates will be miscategorized. However, the project shows, that even with a limited dataset, we can use Natural Language Processing to classify the time period that a piece of literature was published. 
+Each time period has precision scores above 60% and recall scores above 70%, which is decent for a 6 classification model. The biggest take away, was that the model had difficulty predicting between neighbouring targets. 91% of predictions were acurate or belonged to the neighbouring target. This shows the inherent limitation of creating a classification model attempting to predict dates. Inevitably borderline dates will be miscategorized. However, the project shows, that even with a limited dataset, we can use Natural Language Processing to classify the time period that a piece of literature was published. 
 
 # Web App
 
