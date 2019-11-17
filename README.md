@@ -76,7 +76,7 @@ Second, I had to deal with the overfitting. Using regularization, I was able to 
 <img src='doc_date/static/images/regularization.png' width='400' height='325' alt='regularization'>
  
 
-Each time period has precision scores above 60% and recall scores above 70%, which is decent for a 6 classification model. The biggest take away, was that the model had difficulty predicting between neighbouring targets. 91% of predictions were acurate or belonged to the neighbouring target. This shows the inherent limitation of creating a classification model attempting to predict dates. Inevitably borderline dates will be miscategorized. However, the project shows, that even with a limited dataset, we can use Natural Language Processing to classify the time period that a piece of literature was published. 
+Each time period has precision scores above 60% and recall scores above 70%, which is decent for a 6 classification model. The biggest take away, was that the model had difficulty predicting between neighbouring targets. 91% of predictions were accurate or belonged to the neighbouring target. This shows the inherent limitation of creating a classification model attempting to predict dates. Inevitably borderline dates will be miscategorized. However, the project shows, that even with a limited dataset, we can use Natural Language Processing to classify the time period that a piece of literature was published. 
 
 # Web App
 
