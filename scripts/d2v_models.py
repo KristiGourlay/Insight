@@ -5,9 +5,6 @@ import multiprocessing
 from sklearn.pipeline import Pipeline
 from tqdm import tqdm
 
-import catboost as cb
-from catboost import CatBoostClassifier
-
 from nltk.tokenize import RegexpTokenizer
 import nltk
 from nltk import pos_tag
